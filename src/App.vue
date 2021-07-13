@@ -1,14 +1,18 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <MoviesList :list="moviesList" />
+  </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
+import MoviesList from "@/components/MoviesList";
+
 export default {
-  name: "App",
-  components: {},
-  mounted() {
-    this.fetchMovies();
+  name: "app",
+  components: { MoviesList },
+  computed: {
+    ...mapGetters("movies", ["moviesList"]),
   },
   methods: {
     ...mapActions("movies", ["fetchMovies"]),
