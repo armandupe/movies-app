@@ -54,5 +54,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 </style>

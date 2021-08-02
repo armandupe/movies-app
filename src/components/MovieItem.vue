@@ -7,10 +7,10 @@
         <span class="movie-year">{{ movie.Year }}</span>
       </div>
       <div class="movie-item-controls row no-gutters">
-        <div class="col-12 pr-2">
-          <BButton size="md" block variant="outline-light">Edit</BButton>
+        <div class="col pr-2">
+          <BButton size="md" @click="showInfoModalEvent" block variant="outline-light">Info</BButton>
         </div>
-        <div class="col-12 pl-2">
+        <div class="col pl-2">
           <BButton size="md" block variant="outline-light" @click="emitRemoveEvent">Remove</BButton>
         </div>
       </div>
@@ -40,6 +40,9 @@ export default {
         id: this.movie.imdbID,
         title: this.movie.Title,
       });
+    },
+    showInfoModalEvent() {
+      this.$emit("showModal", this.movie.imdbID);
     },
   },
 };

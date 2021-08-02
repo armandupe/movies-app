@@ -36,7 +36,7 @@ export default {
 
 <style scoped lang="scss">
 .movies-pagination {
-  margin-top: 2rem;
+  margin-top: auto;
 }
 .movies-pagination::v-deep .pagination .page-item .page-link {
   background-color: transparent;
