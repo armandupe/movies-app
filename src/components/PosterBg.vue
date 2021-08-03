@@ -35,7 +35,6 @@ export default {
   left: 0;
   right: 0;
   z-index: -1;
-  background-size: cover;
   background-position: center;
   transition: all 0.2s ease;
   &::before {

@@ -37,20 +37,21 @@ export default {
 <style scoped lang="scss">
 .movies-pagination {
   margin-top: auto;
-}
-.movies-pagination::v-deep .pagination .page-item .page-link {
-  background-color: transparent;
-  font-size: 1rem;
-  color: #fff;
-  box-shadow: none;
-}
-.movies-pagination::v-deep .pagination .page-item.active .page-link {
-  border-color: #fff;
-  background-color: #fff;
-  color: #000;
-}
 
-.movies-pagination::v-deep .pagination .page-item.disabled .page-link {
-  color: lightgray;
+  &::v-deep .pagination .page-item .page-link {
+    background-color: transparent;
+    font-size: 1rem;
+    color: #fff;
+    box-shadow: none;
+  }
+  &::v-deep .pagination .page-item.active .page-link {
+    border-color: #fff;
+    background-color: #fff;
+    color: #000;
+  }
+
+  &::v-deep .pagination .page-item.disabled .page-link {
+    color: lightgray;
+  }
 }
 </style>

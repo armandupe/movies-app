@@ -1,7 +1,7 @@
 <template>
   <div class="movie-info-wrap">
     <header class="movie-info-header">
-      <h6 class="movie-header-title">Movie view</h6>
+      <h6 class="movie-header-title">Информация о фильме</h6>
       <BIconX class="close-icon" @click="closeModal" />
     </header>
     <div class="movie-info-content">
@@ -13,13 +13,22 @@
         </BCol>
         <BCol sm="8">
           <h3 class="movie-title">{{ movie.Title }}</h3>
-          <BFormRating class="movie-rating" no-border show-value-max stars="10" precision="1" show-value readonly v-model="movie.imdbRating" />
+          <BFormRating
+            class="movie-rating flex-wrap my-3 my-lg-0"
+            no-border
+            show-value-max
+            stars="10"
+            precision="1"
+            show-value
+            readonly
+            v-model="movie.imdbRating"
+          />
           <p class="movie-description">{{ movie.Plot }}</p>
           <div class="mt-3 mb-4">
-            <BBadge class="mr-2" variant="success">{{ movie.Year }}</BBadge>
-            <BBadge class="mr-2" variant="success">{{ movie.Runtime }}</BBadge>
-            <BBadge class="mr-2" variant="success">{{ movie.Genre }}</BBadge>
-            <BBadge class="mr-2" variant="success">{{ movie.Language }}</BBadge>
+            <BBadge class="mr-2 mb-2" variant="success">{{ movie.Year }}</BBadge>
+            <BBadge class="mr-2 mb-2" variant="success">{{ movie.Runtime }}</BBadge>
+            <BBadge class="mr-2 mb-2" variant="success">{{ movie.Genre }}</BBadge>
+            <BBadge class="mr-2 mb-2" variant="success">{{ movie.Language }}</BBadge>
           </div>
           <table class="table small">
             <tbody>
@@ -86,82 +95,89 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.movie-info-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background: linear-gradient(45deg, rgb(0, 3, 38) 0%, rgb(82, 15, 117) 100%);
-  color: #fff;
-}
+.movie {
+  &-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(45deg, rgb(0, 3, 38) 0%, rgb(82, 15, 117) 100%);
+    color: #fff;
+  }
 
-.movie-header-title {
-  margin-bottom: 0;
-  line-height: 1.5;
-  font-size: 1.25rem;
-}
+  &-header-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+  }
 
-.movie-info-content {
-  padding: 1rem;
-  background-color: #fff;
-}
+  &-info-content {
+    padding: 1rem;
+    background-color: #fff;
+    &::v-deep .badge {
+      padding: 0.5rem 0.5rem;
+      border-radius: 0.8rem;
+      font-weight: 600;
+    }
+  }
 
-.movie-poster-wrap {
-  position: relative;
-  padding-bottom: 150%;
-  border-radius: 5px;
-  overflow: hidden;
-  transition: all 0.2s ease;
-}
+  &-poster-wrap {
+    position: relative;
+    padding-bottom: 150%;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
 
-.movie-poster {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
-}
+  &-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
 
-.movie-title {
-  font-size: 3.5rem;
-  font-weight: 300;
-  line-height: 1.2;
-}
+  &-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
 
-.movie-rating {
-  padding: 0;
-}
+  &-rating {
+    padding: 0;
+  }
 
-.movie-rating:focus {
-  box-shadow: none;
-}
+  &-rating:focus {
+    box-shadow: none;
+  }
 
-.movie-rating >>> .b-rating-star,
-.movie-rating >>> .b-rating-value {
-  justify-content: flex-start;
-  flex-grow: 0 !important;
-  font-size: 1.3rem;
-  font-weight: 300;
-  padding: 0;
-}
+  &-rating::v-deep .b-rating-star,
+  &-rating::v-deep .b-rating-value {
+    justify-content: flex-start;
+    flex-grow: 0 !important;
+    font-size: 1.3rem;
+    font-weight: 300;
+    padding: 0;
+  }
 
-.movie-rating >>> .b-rating-star + .b-rating-star {
-  margin-left: 4px;
-}
+  &-rating::v-deep .b-rating-star + .b-rating-star {
+    margin-left: 4px;
+  }
 
-.movie-rating >>> .b-rating-value {
-  margin-left: 10px;
-}
+  &-rating::v-deep .b-rating-value {
+    margin-left: 10px;
+  }
 
-.movie-rating >>> .b-rating-star .b-rating-icon {
-  color: #ffc107;
-}
+  &-rating::v-deep .b-rating-star .b-rating-icon {
+    color: #ffc107;
+  }
 
-.movie-description {
-  font-size: 1.25rem;
-  font-weight: 300;
+  &-description {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
 }
 
 .close-icon {

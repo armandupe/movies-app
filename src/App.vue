@@ -5,7 +5,12 @@
     <Notification />
     <PosterBg :poster="posterBg" />
     <MoviesList :list="moviesList" @changePoster="onChangePoster" />
-    <MoviesPagination :current-page="currentPage" :per-page="moviesPerPage" :total="moviesLength" @pageChanged="onPageChanged" />
+    <MoviesPagination
+      :current-page="currentPage"
+      :per-page="moviesPerPage"
+      :total="moviesLength"
+      @pageChanged="onPageChanged"
+    />
   </div>
 </template>
 
@@ -57,5 +62,8 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+.modal-body {
+  padding: 0 !important;
 }
 </style>

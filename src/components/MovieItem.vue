@@ -7,11 +7,11 @@
         <span class="movie-year">{{ movie.Year }}</span>
       </div>
       <div class="movie-item-controls row no-gutters">
-        <div class="col pr-2">
-          <BButton size="md" @click="showInfoModalEvent" block variant="outline-light">Info</BButton>
+        <div class="col pr-0 pr-lg-2 pb-2">
+          <BButton size="md" @click="showInfoModalEvent" block variant="outline-light">Инфо</BButton>
         </div>
-        <div class="col pl-2">
-          <BButton size="md" block variant="outline-light" @click="emitRemoveEvent">Remove</BButton>
+        <div class="col pl-0 pl-lg-2">
+          <BButton size="md" block variant="outline-light" @click="emitRemoveEvent">Удалить</BButton>
         </div>
       </div>
     </div>
@@ -49,49 +49,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.movie-item {
-  position: relative;
-  cursor: pointer;
-  border-radius: 5px;
-  overflow: hidden;
-  transition: all 0.2s ease;
-  height: 400px;
-  &:hover {
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7);
-    transform: scale(1.02);
+.movie {
+  &-item {
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    height: 400px;
+    &:hover {
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7);
+      transform: scale(1.02);
+    }
+    &:hover .movie-info-wrap {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
   }
-  &:hover .movie-info-wrap {
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
+
+  &-info-wrap {
+    padding: 20px 30px;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.2s ease;
   }
-}
 
-.movie-info-wrap {
-  padding: 20px 30px;
-  height: 100%;
-  opacity: 0;
-  transition: all 0.2s ease;
-}
+  &-item-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+  }
 
-.movie-item-poster {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  z-index: -1;
-}
+  &-title {
+    font-style: 20px;
+    color: #fff;
+    word-break: break-word;
+  }
 
-.movie-title {
-  font-style: 20px;
-  color: #fff;
-}
-
-.movie-year {
-  font-style: 14px;
-  color: #fff;
+  &-year {
+    font-style: 14px;
+    color: #fff;
+  }
 }
 </style>

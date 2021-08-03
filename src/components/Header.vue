@@ -4,7 +4,12 @@
       <BContainer>
         <BNavbarBrand href="#">MovieDB</BNavbarBrand>
         <BNavForm>
-          <BFormInput debounce="500" class="search-input mr-sm-2" placeholder="Search" v-model="searchValue"></BFormInput>
+          <BFormInput
+            debounce="500"
+            class="search-input mr-sm-2"
+            placeholder="Search"
+            v-model="searchValue"
+          ></BFormInput>
         </BNavForm>
       </BContainer>
     </BNavbar>
